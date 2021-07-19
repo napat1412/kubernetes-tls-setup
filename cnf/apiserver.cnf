@@ -1,0 +1,32 @@
+[ req ]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = dn
+
+[ dn ]
+CN = kube-apiserver
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = ms1.service.local
+DNS.2 = ms2.service.local
+DNS.3 = kubernetes
+DNS.4 = kubernetes.default
+DNS.5 = kubernetes.default.svc
+DNS.6 = kubernetes.default.svc.cluster.local
+DNS.7 = kube-api.meca.in.th
+IP.1 = 10.0.0.1
+IP.2 = 172.16.2.35
+IP.3 = 172.16.2.36
+IP.4 = 172.16.2.37
+IP.5 = 172.16.2.38
+[ v3_ext ]
+basicConstraints=critical,CA:FALSE
+authorityKeyIdentifier=keyid
+keyUsage=critical,keyEncipherment,digitalSignature
+extendedKeyUsage=serverAuth
+subjectAltName=@alt_names

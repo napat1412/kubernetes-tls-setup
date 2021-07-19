@@ -1,0 +1,14 @@
+[ req ]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+
+[ dn ]
+CN = front-proxy-client
+
+[ v3_ext ]
+basicConstraints=critical,CA:FALSE
+keyUsage=critical,keyEncipherment,digitalSignature
+extendedKeyUsage=clientAuth
+authorityKeyIdentifier=keyid
